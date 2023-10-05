@@ -7,17 +7,14 @@ public class Timer : MonoBehaviour
     private float _timer;
     private int _timerInt;
     private bool _run;
-    public event Action<int> OnTimerStop;
+    public event Action OnTimerStop;
     public event Action<int> OnTimerGet;
 
     [SerializeField] private GameObject _prefub;
-    [SerializeField] private Transform _canvas;
 
-    private void Start()
+    public void Init(TimerUI timerUI)
     {
-        StartTimer(20);
-        var timeObj = Instantiate(_prefub, _canvas);
-        timeObj.GetComponent<TimerUI>().Init(this);
+        timerUI.GetComponent<TimerUI>().Init(this);
     }
 
     private void  FixedUpdate()
@@ -31,7 +28,7 @@ public class Timer : MonoBehaviour
         else if (_run == true)
         {
             _run = false;
-            OnTimerStop?.Invoke(_timerInt);
+            OnTimerStop?.Invoke();
         }
     }
     
