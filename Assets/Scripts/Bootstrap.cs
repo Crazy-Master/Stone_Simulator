@@ -7,6 +7,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _levelObj;
+    [SerializeField] private GameObject _stoneObj;
     
     [SerializeField] private GameObject _canvas;
     
@@ -21,16 +22,24 @@ public class Bootstrap : MonoBehaviour
         {
             PlayerPrefs.SetInt("lvl",1);
         }
-        CreateWorld();
+        
         CreateUI();
+        CreateWorld();
+        CreatePlayer();
     }
 
+    private void CreatePlayer()
+    {
+        var Stone = Instantiate(_stoneObj);
+    }
+    
     private void CreateWorld()
     {
         if (_activeObj != null)
         {
             Destroy(_activeObj);
         }
+        
         _activeObj = Instantiate(_levelObj[PlayerPrefs.GetInt("lvl")-1]);
     }
     
@@ -38,6 +47,7 @@ public class Bootstrap : MonoBehaviour
     {
         GameObject canvas = Instantiate(_canvas);
         _timer = canvas.AddComponent<Timer>();
+        GameMeneger.instance.timer = _timer;
         _timer.Init(canvas.GetComponentInChildren<TimerUI>());
         _timer.StartTimer(5); //  в зависимости от уровня;
         _timer.OnTimerStop += NextLevel;
@@ -45,9 +55,13 @@ public class Bootstrap : MonoBehaviour
 
     private void NextLevel()
     {
-        PlayerPrefs.SetInt("lvl",PlayerPrefs.GetInt("lvl")+1);
-        CreateWorld();
-        _timer.StartTimer(5);
+        if (_levelObj.Count > PlayerPrefs.GetInt("lvl")-1)
+        {
+            PlayerPrefs.SetInt("lvl",PlayerPrefs.GetInt("lvl")+1);
+            CreateWorld();
+            _timer.StartTimer(20);
+        }
+        
     }
 }
 

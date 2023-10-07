@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TapObject : MonoBehaviour, IPointerClickHandler
+public class TapObject : MonoBehaviour, IPointerClickHandler, I–°hangeTime
 {
+    public event Action<float> On–°hangeTime;
+    private const float _changeTime = 0.5f;
+
+    private void Start()
+    {
+        GameMeneger.instance.timer.Set–°hangeTime(this);
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Õ¿∆¿À");
+        On–°hangeTime?.Invoke(_changeTime);
+        Debug.Log("–ù–ê–ñ–ê–õ");
     }
-      
     
 }

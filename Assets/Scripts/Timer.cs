@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -7,6 +8,7 @@ public class Timer : MonoBehaviour
     private float _timer;
     private int _timerInt;
     private bool _run;
+    private List<IСhangeTime> _iСhangeTime = new List<IСhangeTime>();
     public event Action OnTimerStop;
     public event Action<int> OnTimerGet;
 
@@ -44,10 +46,24 @@ public class Timer : MonoBehaviour
     {
         _timer -= value;
     }
+
+    public void SetСhangeTime(IСhangeTime change)
+    {
+        _iСhangeTime.Add(change);
+        change.OnСhangeTime += СhangeTime;
+    }
     
     public void СhangePercentTime(float value)
     {
         _timer -= _totalTime*value/100f;
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var change in _iСhangeTime)
+        {
+            change.OnСhangeTime -= СhangeTime;
+        }
     }
 }
 
