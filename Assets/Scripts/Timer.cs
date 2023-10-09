@@ -11,9 +11,6 @@ public class Timer : MonoBehaviour
     private List<IСhangeTime> _iСhangeTime = new List<IСhangeTime>();
     public event Action OnTimerStop;
     public event Action<int> OnTimerGet;
-
-    [SerializeField] private GameObject _prefub;
-
     public void Init(TimerUI timerUI)
     {
         timerUI.GetComponent<TimerUI>().Init(this);
