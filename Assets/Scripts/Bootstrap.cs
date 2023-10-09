@@ -24,13 +24,13 @@ public class Bootstrap : MonoBehaviour
         }
         
         CreateUI();
-        CreateWorld();
+        //CreateWorld();
         CreatePlayer();
     }
 
     private void CreatePlayer()
     {
-        var Stone = Instantiate(_stoneObj);
+        var Stone = Instantiate(_stoneObj, new Vector3(22,5,19), Quaternion.identity);
     }
     
     private void CreateWorld()
