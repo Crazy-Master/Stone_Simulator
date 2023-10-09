@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
 {
     public event Action<float> OnСhangeTime;
-    private const float _changeTime = 0.5f;
+    [SerializeField] float _changeTime = 0.5f;
+    [SerializeField] GameObject _textEffect;
 
     private void Start()
     {
@@ -15,7 +16,13 @@ public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
     public void OnPointerClick(PointerEventData eventData)
     {
         OnСhangeTime?.Invoke(_changeTime);
+        TimeEffect();
         Debug.Log("НАЖАЛ");
+    }
+
+    private void  TimeEffect()
+    {
+        Instantiate(_textEffect, transform);
     }
     
 }
