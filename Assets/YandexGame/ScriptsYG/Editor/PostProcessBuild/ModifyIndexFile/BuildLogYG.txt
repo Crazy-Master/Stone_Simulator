@@ -1,2 +1,2 @@
-Build path: D:/Unity/Release/PluginYG/PluginYG
-Build number: 12
+Build path: D:/UnityProjects/Stone_Simulator/WebGL Builds
+Build number: 14
