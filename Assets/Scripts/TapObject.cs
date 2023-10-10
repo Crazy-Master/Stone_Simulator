@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Core.AudioSystem;
 
 public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
 {
     public event Action<float> OnСhangeTime;
-    [SerializeField] float _changeTime = 0.5f;
-    [SerializeField] GameObject _textEffect;
+    [SerializeField] private float _changeTime = 0.5f;
+    [SerializeField] private GameObject _textEffect;
+    [SerializeField] private ESound _eSound;
 
     private void Start()
     {
@@ -15,6 +17,7 @@ public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        AudioManagerView.Instance.PlaySound(_eSound);
         OnСhangeTime?.Invoke(_changeTime);
         TimeEffect();
         Debug.Log("НАЖАЛ");
@@ -22,7 +25,8 @@ public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
 
     private void  TimeEffect()
     {
-        Instantiate(_textEffect, transform);
+        var effect = Instantiate(_textEffect, transform);
+        effect.GetComponent<TapEffect>().Init(_changeTime);
     }
     
 }

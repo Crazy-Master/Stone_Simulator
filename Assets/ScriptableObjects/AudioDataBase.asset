@@ -14,21 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound:
   - eSound: 0
-    soundClip: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 2584e56c5bdb3d645b4a9245c67a4501, type: 3}
   music:
   - eMusic: 0
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 6b08ccefe2c8c5e4fb69ec0c3d5d92df, type: 3}
   - eMusic: 1
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 70b11bf620ea41043a07888402a26e6a, type: 3}
   - eMusic: 2
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 8310c03f02828444fbb6c9371417d7a5, type: 3}
   - eMusic: 3
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 38c694ef7c0dced4a99f490930a9ef10, type: 3}
   - eMusic: 4
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 6afeebf44977acd4590dcb471bfbf928, type: 3}
   - eMusic: 5
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 97a3355649e9f1c4faf93f28eb2d3220, type: 3}
   - eMusic: 6
+    musicClips: []
     musicClip: {fileID: 8300000, guid: 7e7cfefe75c87a74f86741f831476580, type: 3}
   - eMusic: 7
+    musicClips: []
     musicClip: {fileID: 8300000, guid: c5b5a86a05a4fa748bcf0f128662fd3a, type: 3}

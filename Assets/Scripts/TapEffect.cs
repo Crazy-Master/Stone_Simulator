@@ -1,10 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TapEffect : MonoBehaviour
 {
-  public void DestroyGameObj()
+    [SerializeField] private TextMeshPro _text;
+    public void Init(float value)
+    {
+        float time = Mathf.Round(value * 10) / 10;
+        _text.text = value.ToString();
+    }
+    public void DestroyGameObj()
     {        
         Destroy(gameObject);
     }
