@@ -24,13 +24,13 @@ public class Bootstrap : MonoBehaviour
         }
         
         CreateUI();
-        CreateWorld();
+        //CreateWorld();
         CreatePlayer();
     }
 
     private void CreatePlayer()
     {
-        var Stone = Instantiate(_stoneObj);
+        var Stone = Instantiate(_stoneObj, new Vector3(22,5,19), Quaternion.identity);
     }
     
     private void CreateWorld()
@@ -46,10 +46,9 @@ public class Bootstrap : MonoBehaviour
     private void CreateUI()
     {
         GameObject canvas = Instantiate(_canvas);
-        _timer = canvas.AddComponent<Timer>();
-        GameMeneger.instance.timer = _timer;
+        _timer = GameMeneger.instance.timer;
         _timer.Init(canvas.GetComponentInChildren<TimerUI>());
-        _timer.StartTimer(5); //  в зависимости от уровня;
+        _timer.StartTimer(20); //  в зависимости от уровня;
         _timer.OnTimerStop += NextLevel;
     }
 
