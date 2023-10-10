@@ -8,6 +8,10 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private int _scaleSpeed;
     [SerializeField] private Camera _camera;
 
+    [SerializeField] private int _rangeCamMAX;
+    [SerializeField] private int _rangeCamMIN;
+
+
     private Rigidbody _rigidbody;
 
     private void Start()
@@ -39,16 +43,17 @@ public class CameraMove : MonoBehaviour
             Rotation(1);
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && _camera.transform.position.z < -1* _rangeCamMIN)
         {
             ScaleCam(1);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && _camera.transform.position.z > -1*_rangeCamMAX)
         {
             ScaleCam(-1);
         }
 
+       
 
     }
 
@@ -61,6 +66,7 @@ public class CameraMove : MonoBehaviour
     private void ScaleCam(int upScale)
     {
         _camera.transform.Translate(new Vector3(0, 0, upScale*_scaleSpeed) * Time.deltaTime, Space.Self);
+             
     }
 }
 

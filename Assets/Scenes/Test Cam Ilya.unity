@@ -156,6 +156,8 @@ MonoBehaviour:
   _rotateSpeed: 10
   _scaleSpeed: 10
   _camera: {fileID: 1698893721}
+  _rangeCamMAX: 20
+  _rangeCamMIN: 4
 --- !u!54 &1398323999
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -418,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _changeTime: 0.5
   _textEffect: {fileID: 5330071043537024865, guid: 47a79f79937b23242a0900daadd106f7, type: 3}
+  _eSound: 0
 --- !u!135 &1705896095
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -530,6 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _changeTime: 0.5
   _textEffect: {fileID: 5330071043537024865, guid: 47a79f79937b23242a0900daadd106f7, type: 3}
+  _eSound: 0
 --- !u!135 &1767152945
 SphereCollider:
   m_ObjectHideFlags: 0
