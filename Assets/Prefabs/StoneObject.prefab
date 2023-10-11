@@ -65,6 +65,8 @@ MonoBehaviour:
   _rotateSpeed: 200
   _scaleSpeed: 20
   _camera: {fileID: 2823231989807563354}
+  _rangeCamMAX: 20
+  _rangeCamMIN: 4
 --- !u!1 &2823231989212042460
 GameObject:
   m_ObjectHideFlags: 0

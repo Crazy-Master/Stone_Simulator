@@ -43,12 +43,12 @@ public class CameraMove : MonoBehaviour
             Rotation(1);
         }
 
-        if (Input.GetKey(KeyCode.W) && _camera.transform.position.z < -1* _rangeCamMIN)
+        if (Input.GetKey(KeyCode.W) && _camera.transform.localPosition.z < -1* _rangeCamMIN)
         {
             ScaleCam(1);
         }
 
-        if (Input.GetKey(KeyCode.S) && _camera.transform.position.z > -1*_rangeCamMAX)
+        if (Input.GetKey(KeyCode.S) && _camera.transform.localPosition.z > -1*_rangeCamMAX)
         {
             ScaleCam(-1);
         }
