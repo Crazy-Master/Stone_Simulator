@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
 {
     private float _totalTime;
     private float _timer;
-    private int _timerInt;
+    private int _deltaTime;
     private bool _run;
     private List<IСhangeTime> _iСhangeTime = new List<IСhangeTime>();
     public event Action OnTimerStop;
@@ -21,8 +21,12 @@ public class Timer : MonoBehaviour
         if (_timer > 0)
         {
             _timer = _timer - Time.deltaTime;
-            _timerInt = (int)_timer;
-            OnTimerGet?.Invoke(_timerInt);
+            var timerInt = (int)_timer;
+            if (_deltaTime != timerInt)
+            {
+                OnTimerGet?.Invoke(timerInt);
+                _deltaTime = timerInt;
+            }
         }
         else if (_run == true)
         {
@@ -35,7 +39,8 @@ public class Timer : MonoBehaviour
     public void StartTimer(float value)
     {
         _totalTime = value;
-        _timer = value;
+         _timer = value;
+         _deltaTime = (int)value;
         _run = true;
     }
     
