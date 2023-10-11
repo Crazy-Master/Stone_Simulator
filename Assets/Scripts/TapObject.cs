@@ -10,6 +10,8 @@ public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
     [SerializeField] private GameObject _textEffect;
     [SerializeField] private ESound _eSound;
 
+    [SerializeField] private GameObject _pointSpawnEffect;
+
     private void Start()
     {
         GameMeneger.instance.timer.SetСhangeTime(this);
@@ -25,7 +27,7 @@ public class TapObject : MonoBehaviour, IPointerClickHandler, IСhangeTime
 
     private void  TimeEffect()
     {
-        var effect = Instantiate(_textEffect, transform);
+        var effect = Instantiate(_textEffect, _pointSpawnEffect.transform);
         effect.GetComponent<TapEffect>().Init(_changeTime);
     }
     
