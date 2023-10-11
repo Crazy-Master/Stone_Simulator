@@ -75,4 +75,13 @@ public class AIEnemy : MonoBehaviour
         nm.SetDestination(Target.position);
 
     }
+
+    public void GoHuman()
+    {
+        float distance = Vector3.Distance(transform.position, Target.position);
+        if (distance <= stop_distance && WayPoints.Length > 0)
+        {
+            cur_timer = 0;
+        }
+    }
 }
