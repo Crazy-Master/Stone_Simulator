@@ -8,8 +8,8 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private int _scaleSpeed;
     [SerializeField] private Camera _camera;
 
-    [SerializeField] private int _rangeCamMAX;
-    [SerializeField] private int _rangeCamMIN;
+    [SerializeField] private float _rangeCamMAX;
+    [SerializeField] private float _rangeCamMIN;
 
 
     private Rigidbody _rigidbody;
