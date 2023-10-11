@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using YG;
+using Random = UnityEngine.Random;
 
 public class RewardAdsManager : MonoBehaviour
 {
     public YandexGame sdk;
-    private int _timeFix = 50;
+    private int _timeFix = 30;
     private Timer _timer;
     
     private void Start()
