@@ -45,9 +45,8 @@ public class Bootstrap : MonoBehaviour
     
     private void CreateUI()
     {
-        GameObject canvas = Instantiate(_canvas);
         _timer = GameMeneger.instance.timer;
-        _timer.Init(canvas.GetComponentInChildren<TimerUI>());
+        _timer.Init(_canvas.GetComponentInChildren<TimerUI>());
         _timer.StartTimer(500); //  в зависимости от уровня;
         _timer.OnTimerStop += NextLevel;
     }
