@@ -57,7 +57,7 @@ public class Timer : MonoBehaviour
     
     public void СhangePercentTime(float value)
     {
-        _timer -= _totalTime*value/100f;
+        _timer -= _timer*value/100f;
     }
 
     private void OnDestroy()
