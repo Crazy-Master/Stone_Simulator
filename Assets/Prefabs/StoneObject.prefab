@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea2a17e480d57045823dd3a448a0ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateSpeed: 200
-  _scaleSpeed: 20
+  _rotateSpeed: 80
+  _scaleSpeed: 3
   _camera: {fileID: 2823231989807563354}
   _rangeCamMAX: 8.6
   _rangeCamMIN: 3
