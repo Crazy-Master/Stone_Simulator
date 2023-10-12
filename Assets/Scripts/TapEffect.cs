@@ -7,7 +7,10 @@ public class TapEffect : MonoBehaviour
     public void Init(float value)
     {
         float time = Mathf.Round(value * 10) / 10;
-        _text.text = value.ToString();
+        if (time > 0)
+        {
+            _text.text = "-" + value;
+        }else _text.text = "+" + -value;
     }
     public void DestroyGameObj()
     {        

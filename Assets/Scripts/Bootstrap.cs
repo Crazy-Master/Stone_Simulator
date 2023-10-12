@@ -17,14 +17,7 @@ public class Bootstrap : MonoBehaviour
     
     private void Start()
     {
-        PlayerPrefs.DeleteAll(); // при билде убрать 
-        if (!PlayerPrefs.HasKey("lvl"))
-        {
-            PlayerPrefs.SetInt("lvl",1);
-        }
-        
         CreateUI();
-        //CreateWorld();
         CreatePlayer();
     }
 
@@ -32,35 +25,14 @@ public class Bootstrap : MonoBehaviour
     {
         var Stone = Instantiate(_stoneObj, new Vector3(22,5,19), Quaternion.identity);
     }
-    
-    private void CreateWorld()
-    {
-        if (_activeObj != null)
-        {
-            Destroy(_activeObj);
-        }
-        
-        _activeObj = Instantiate(_levelObj[PlayerPrefs.GetInt("lvl")-1]);
-    }
-    
+
     private void CreateUI()
     {
         _timer = GameMeneger.instance.timer;
         _timer.Init(_canvas.GetComponentInChildren<TimerUI>());
-        _timer.StartTimer(500); //  в зависимости от уровня;
-        _timer.OnTimerStop += NextLevel;
+        _timer.StartTimer(86400); //  в зависимости от уровня;
     }
-
-    private void NextLevel()
-    {
-        if (_levelObj.Count > PlayerPrefs.GetInt("lvl")-1)
-        {
-            PlayerPrefs.SetInt("lvl",PlayerPrefs.GetInt("lvl")+1);
-            CreateWorld();
-            _timer.StartTimer(500);
-        }
-        
-    }
+    
 }
 
 

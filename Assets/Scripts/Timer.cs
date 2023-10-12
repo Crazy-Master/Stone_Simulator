@@ -9,8 +9,10 @@ public class Timer : MonoBehaviour
     private int _deltaTime;
     private bool _run;
     private List<IСhangeTime> _iСhangeTime = new List<IСhangeTime>();
+
     public event Action OnTimerStop;
     public event Action<int> OnTimerGet;
+    public event Action<float> OnСhangeTimerGet;
     public void Init(TimerUI timerUI)
     {
         timerUI.GetComponent<TimerUI>().Init(this);
@@ -47,6 +49,7 @@ public class Timer : MonoBehaviour
     public void СhangeTime(float value)
     {
         _timer -= value;
+        OnСhangeTimerGet?.Invoke(value);
     }
 
     public void SetСhangeTime(IСhangeTime change)

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -55,7 +53,7 @@ public class AIEnemy : MonoBehaviour
         {
             if(cur_timer > 0)
             {
-                cur_timer -= 0.01f;
+                cur_timer -= Time.deltaTime;
                 _animator.SetTrigger("Idle");
                 //Animator : Set Bool for moving = False
                 //Animator : Set Bool for Idle = True;
