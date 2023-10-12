@@ -13,7 +13,6 @@ public class QuotesManager : MonoBehaviour
     private void Start()
     {
         GameMeneger.instance.timer.OnTimerGet += Timer;
-        ChangeQuote();
     }
 
     public void Timer(int time)
