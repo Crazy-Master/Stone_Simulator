@@ -9,27 +9,34 @@ using Random = UnityEngine.Random;
 //[RequireComponent(typeof(Animator))]
 public class AIChicken : MonoBehaviour
 {
+    private ParticleSystem _chickenEffect;
+
     NavMeshAgent nm;
     Rigidbody rb;
     //Animation anim;
     public Transform Target;
     public Transform[] WayPoints;
-    public int Cur_WayPoints; 
+    public int Cur_WayPoints;
     public float speed, stop_distance;
     public float PauseTimer;
-    
+
     [SerializeField] private float cur_timer;
     private Animator _animator;
 
     private int _stateMove;
     private int _stateStand;
     private bool _isMoving = false;
-    
+
     private GameObject _obj;
     private float _lastScale = 1f;
     private float _timer;
+    [SerializeField] private float _timerAbility= 20;
+
+
+
     void Start()
     {
+        _chickenEffect = GetComponentInChildren<ParticleSystem>();
         _obj = gameObject;
         gameObject.GetComponent<TapObject>().OnСhangeTime += BigChicken;
         
@@ -145,19 +152,26 @@ public class AIChicken : MonoBehaviour
             else
             {
                 _obj.transform.localScale = new Vector3(1,1,1);
+                Debug.Log("сдувается");
+                _chickenEffect.Play();
                 /*var scale = Mathf.Round(_objScale.x - 1f);
                 _objScale = new Vector3(scale,scale,scale);*/
             }
             
+            
+            
+
         }
     }
     
     public void BigChicken(float velu)
     {
-        _timer = 20;
+        _timer = _timerAbility;
         float scale = (float)Math.Round((_obj.transform.localScale.x + 0.1f)*10)/10;
         _lastScale = scale;
-        _obj.transform.localScale = new Vector3(scale,scale,scale);
+        _obj.transform.localScale = new Vector3(scale,scale,scale); 
+       
+
     }
 
     private void OnDestroy()

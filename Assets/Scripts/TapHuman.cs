@@ -5,6 +5,7 @@ using Core.AudioSystem;
 
 public class TapHuman : MonoBehaviour, IPointerDownHandler, IСhangeTime
 {
+    [SerializeField] private ParticleSystem _particleEffHuman;
     [SerializeField] private ESound _eSound;
     [SerializeField] private AIEnemy _ai;
     public event Action<float> OnСhangeTime;
@@ -22,6 +23,9 @@ public class TapHuman : MonoBehaviour, IPointerDownHandler, IСhangeTime
         _ai.GoHuman();
         
         OnСhangeTime?.Invoke(_changeTime);
+        _particleEffHuman.Play();
+
+
     }
     
     
