@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-
 public class TimerUI : MonoBehaviour
 {
     private bool _canT;
@@ -60,7 +59,15 @@ public class TimerUI : MonoBehaviour
     
     public void СhangeTimeUI(float value)
     {
-        var effect = Instantiate(_textEffect, _pointSpawnEffect.transform);
-        effect.GetComponent<TapEffect>().Init(value);
+        if (value < 0)
+        {
+            gameObject.GetComponent<GetTokensVFXController>().AddTokensVFX((int)value, Input.mousePosition);
+        }
+        else
+        {
+            gameObject.GetComponent<GetTokensVFXController>().RemoveTokensVFX((int)value);
+        }
+        /*var effect = Instantiate(_textEffect, _pointSpawnEffect.transform);
+        effect.GetComponent<TapEffect>().Init(value);*/
     }
 }
