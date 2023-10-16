@@ -17,7 +17,7 @@ public class QuotesManager : MonoBehaviour
 
     public void Timer(int time)
     {
-        if (time % 40 != 0) return;
+        if (time % 100 != 0) return;
         ChangeQuote();
     }
 
