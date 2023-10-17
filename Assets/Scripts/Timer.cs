@@ -7,8 +7,8 @@ public class Timer : MonoBehaviour
     private float _totalTime;
     private float _timer;
     private int _deltaTime;
-    private bool _run;
     private List<IСhangeTime> _iСhangeTime = new List<IСhangeTime>();
+    private int _gameOver;
 
     public event Action OnTimerStop;
     public event Action<int> OnTimerGet;
@@ -16,13 +16,18 @@ public class Timer : MonoBehaviour
     public void Init(TimerUI timerUI)
     {
         timerUI.GetComponent<TimerUI>().Init(this);
+        if (!PlayerPrefs.HasKey("Victory"))
+        {
+            PlayerPrefs.SetInt("Victory", -1);
+        }
+        _gameOver = PlayerPrefs.GetInt("Victory");
     }
 
     private void  FixedUpdate()
     {
-        if (_timer > 0)
+        if (_timer >= 0)
         {
-            _timer = _timer - Time.deltaTime;
+            _timer += Time.deltaTime * _gameOver;
             var timerInt = (int)_timer;
             if (_deltaTime != timerInt)
             {
@@ -30,9 +35,12 @@ public class Timer : MonoBehaviour
                 _deltaTime = timerInt;
             }
         }
-        else if (_run == true)
+        else if (PlayerPrefs.GetInt("Victory")==-1)
         {
-            _run = false;
+            _timer = 0;
+            OnTimerGet?.Invoke((int)_timer);
+            _gameOver = 1;
+            PlayerPrefs.SetInt("Victory", _gameOver);
             OnTimerStop?.Invoke();
         }
     }
@@ -43,7 +51,6 @@ public class Timer : MonoBehaviour
         _totalTime = value;
          _timer = value;
          _deltaTime = (int)value;
-        _run = true;
     }
     
     public void СhangeTime(float value)

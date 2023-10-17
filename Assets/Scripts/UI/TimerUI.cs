@@ -9,7 +9,7 @@ public class TimerUI : MonoBehaviour
     [SerializeField] private GameObject _textEffect;
 
     [SerializeField] private GameObject _pointSpawnEffect;
-    
+
 
     private Timer _timer;
 

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class RewardAdsManager : MonoBehaviour
 {
     public YandexGame sdk;
-    private int _timeFix = 25;
+    private int _timeFix = 41;
     private Timer _timer;
     private QuotesManager _quotes;
     

@@ -1,2 +1,2 @@
-Build path: D:/UnityProjects/Stone_Simulator/WebGL Builds
-Build number: 16
+Build path: D:/UnityBild/Stone_Simulator
+Build number: 21

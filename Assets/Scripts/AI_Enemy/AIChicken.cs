@@ -30,7 +30,7 @@ public class AIChicken : MonoBehaviour
     private GameObject _obj;
     private float _lastScale = 1f;
     private float _timer;
-    [SerializeField] private float _timerAbility= 20;
+    [SerializeField] private float _timerAbility = 20;
 
 
 
