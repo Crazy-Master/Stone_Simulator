@@ -1,2 +1,2 @@
 Build path: D:/UnityBild/Stone_Simulator
-Build number: 21
+Build number: 22
