@@ -10,12 +10,11 @@ public class RewardAdsManager : MonoBehaviour
     public YandexGame sdk;
     private int _timeFix = 41;
     private Timer _timer;
-    private QuotesManager _quotes;
-    
+    [SerializeField] private QuotesManager _quotes;
+
     private void Start()
     {
         _timer = GameMeneger.instance.timer;
-        _quotes = GetComponent<QuotesManager>();
     }
 
     public void AdButton()

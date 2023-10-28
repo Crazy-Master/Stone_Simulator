@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using YG;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -13,12 +10,14 @@ public class Bootstrap : MonoBehaviour
     
     private GameObject _activeObj;
     private Timer _timer;
-    
+    public YandexGame sdk;
     private void Start()
     {
         CreateUI();
         CreatePlayer();
     }
+
+
 
     private void CreatePlayer()
     {
